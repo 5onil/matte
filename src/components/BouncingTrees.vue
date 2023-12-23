@@ -7,8 +7,17 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <ellipse cx="104.5" cy="215" rx="80.5" ry="12" fill="black" fill-opacity="0.22" />
+    <ellipse
+      class="animate-wider"
+      cx="104.5"
+      cy="215"
+      rx="80.5"
+      ry="12"
+      fill="black"
+      fill-opacity="0.22"
+    />
     <path
+      class="animate-wider"
       d="M84 204.82L87.5118 140H119.488L123 204.82C121.153 214 115.422 214 115.422 214H92.5023C92.5023 214 84 214 84 204.82Z"
       fill="#CC730A"
       stroke="black"
@@ -31,8 +40,17 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <ellipse cx="73.8413" cy="149.697" rx="55.7032" ry="8.30358" fill="black" fill-opacity="0.22" />
+    <ellipse
+      class="animate-wider"
+      cx="73.8413"
+      cy="149.697"
+      rx="55.7032"
+      ry="8.30358"
+      fill="black"
+      fill-opacity="0.22"
+    />
     <path
+      class="animate-wider"
       d="M59.656 142.653L62.086 97.7992H84.2126L86.6426 142.653C85.3644 149.005 81.3988 149.005 81.3988 149.005H65.5393C65.5393 149.005 59.656 149.005 59.656 142.653Z"
       fill="#CC730A"
       stroke="black"
@@ -47,7 +65,7 @@
     />
   </svg>
 
-  <!-- Left -->
+  <!-- Right -->
   <svg
     class="absolute bottom-40 right-32 z-10"
     width="145"
@@ -56,8 +74,17 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <ellipse cx="73.8413" cy="149.697" rx="55.7032" ry="8.30358" fill="black" fill-opacity="0.22" />
+    <ellipse
+      class="animate-wider"
+      cx="73.8413"
+      cy="149.697"
+      rx="55.7032"
+      ry="8.30358"
+      fill="black"
+      fill-opacity="0.22"
+    />
     <path
+      class="animate-wider"
       d="M59.656 142.653L62.086 97.7992H84.2126L86.6426 142.653C85.3644 149.005 81.3988 149.005 81.3988 149.005H65.5393C65.5393 149.005 59.656 149.005 59.656 142.653Z"
       fill="#CC730A"
       stroke="black"
@@ -75,7 +102,7 @@
   <div class="absolute bottom-24 right-80 z-20">
     <!-- Eyes -->
     <svg
-      class="absolute top-20 left-12"
+      class="absolute top-20 left-12 eyes"
       width="104"
       height="45"
       viewBox="0 0 104 45"
@@ -129,6 +156,7 @@
           fill="white"
         />
         <ellipse
+          class="animate-wider"
           cx="15.215"
           cy="17.3649"
           rx="10.5"
@@ -146,8 +174,17 @@
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <ellipse cx="104.5" cy="215" rx="80.5" ry="12" fill="black" fill-opacity="0.22" />
+      <ellipse
+        class="animate-wider"
+        cx="104.5"
+        cy="215"
+        rx="80.5"
+        ry="12"
+        fill="black"
+        fill-opacity="0.22"
+      />
       <path
+        class="animate-wider"
         d="M84 204.82L87.5118 140H119.488L123 204.82C121.153 214 115.422 214 115.422 214H92.5023C92.5023 214 84 214 84 204.82Z"
         fill="#CC730A"
         stroke="black"
@@ -165,6 +202,32 @@
 </template>
 
 <style scoped>
+/* Blinking */
+@keyframes blink {
+  0% {
+    transform: scaleY(1);
+  }
+  49% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+  51% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.eyes {
+  animation: blink 10s linear both; /* Define the animation */
+  animation-duration: 10s; /* Duration of the animation */
+  animation-iteration-count: infinite; /* Make the animation repeat infinitely */
+  animation-delay: 4s; /* Delay the start of the animation by 8 seconds */
+}
+
+/* Bouncing */
 @keyframes bouncer {
   0%,
   100% {
@@ -178,5 +241,22 @@
 }
 .animate-bouncer {
   animation: bouncer 1s infinite;
+}
+
+/* Widening tree trunk */
+@keyframes wider {
+  0%,
+  100% {
+    transform: scaleX(1.2);
+    transform-origin: center;
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+.animate-wider {
+  animation: wider 1s infinite;
 }
 </style>

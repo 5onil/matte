@@ -2,8 +2,9 @@
   <div class="plus-minus">
     <confetti-effect v-if="correctAnswer" />
     <h3 class="text-5xl ml-10">{{ score }}</h3>
-    <div class="flex flex-col justify-center items-center">
-      <div class="flex gap-10 items-center justify-center">
+    <div class="flex flex-col items-center">
+      <h3 class="text-4xl sub-heading">super plus</h3>
+      <div class="flex gap-10 items-center -mt-12">
         <h1>{{ firstNumber }} + {{ secondNumber }} =</h1>
         <div class="relative">
           <input
@@ -18,8 +19,8 @@
           <div class="platform"></div>
         </div>
       </div>
-      <button @click.prevent="calculateAnswer" class="pushable">
-        <span class="front"> 👍 </span>
+      <button @click.prevent="calculateAnswer" class="pushable relative z-10">
+        <span class="front">❔</span>
       </button>
     </div>
     <p
@@ -93,7 +94,7 @@ onMounted(() => {
 <style scoped>
 .plus-minus {
   height: calc(100dvh - 206.5px);
-  background: linear-gradient(0deg, #11ac49 14%, #000000 14%, #000000 15%, #c8ebff 15%);
+  background-color: #c8ebff;
 }
 
 h1,
@@ -103,6 +104,9 @@ input {
   font-size: 16dvw;
   line-height: 1;
   color: #ffffff;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  /* text-stroke: 2px black; */
   text-shadow:
     0px 0px 0 rgb(-13, -13, -13),
     1px 1px 0 rgb(-25, -25, -25),
@@ -143,6 +147,7 @@ input {
   width: 100%;
   height: 40px;
   background-color: #fff;
+  border: 2px solid #000;
   box-shadow:
     1px 1px 0px 0px rgba(0, 0, 0, 1),
     2px 2px 0px 0px rgba(0, 0, 0, 1),
@@ -166,8 +171,27 @@ input {
     20px 20px 0px 0px rgba(0, 0, 0, 1);
 }
 
+.sub-heading {
+  position: relative;
+}
+.sub-heading::before,
+.sub-heading::after {
+  content: '';
+  position: absolute;
+  background-color: #000000;
+  height: 4px;
+  width: 100%;
+  top: 21px;
+}
+.sub-heading::before {
+  left: -106%;
+}
+.sub-heading::after {
+  right: -106%;
+}
+
 .pushable {
-  background: hsl(340deg 100% 32%);
+  background-color: #000000;
   border-radius: 12px;
   border: none;
   padding: 0;
@@ -179,11 +203,11 @@ input {
   padding: 12px 42px;
   border-radius: 12px;
   font-size: 1.25rem;
-  background: hsl(345deg 100% 47%);
+  border: 2px solid #000000;
+  background-color: hsl(345deg 100% 47%);
   color: white;
   transform: translateY(-6px);
 }
-
 .pushable:active .front {
   transform: translateY(-2px);
 }
