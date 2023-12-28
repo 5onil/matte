@@ -1,7 +1,7 @@
 <template>
   <div class="plus-minus">
-    <confetti-effect v-if="correctAnswer" />
-    <h3 class="text-5xl ml-10">{{ score }}</h3>
+    <!-- <confetti-effect v-if="correctAnswer" /> -->
+    <h3 class="text-5xl text-center h-12">{{ score }}</h3>
     <div class="flex flex-col items-center">
       <h3 class="text-4xl sub-heading">super plus</h3>
       <div class="flex gap-10 items-center -mt-12">
@@ -34,7 +34,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import ConfettiEffect from '../components/ConfettiEffect.vue'
+// import ConfettiEffect from '../components/ConfettiEffect.vue'
 import celebrationSoundFile from '../assets/sound/audience-clapping.mp3'
 
 const celebrationSound = new Audio(celebrationSoundFile)
@@ -64,8 +64,8 @@ function calculateAnswer() {
       answer.value = ''
       generateRandomNumbers()
       // scorePlaceholder.value = scorePlaceholder.slice(0, -1)
-      score.value += ' ⭐️ '
-    }, 6000)
+      score.value += '⭐️'
+    }, 30)
   } else {
     correctAnswer.value = false
     wrongAnswer.value = true
