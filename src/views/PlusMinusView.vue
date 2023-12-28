@@ -4,7 +4,7 @@
     <h3 class="text-5xl text-center h-12">{{ score }}</h3>
     <div class="flex flex-col items-center">
       <h3 class="text-4xl sub-heading">super plus</h3>
-      <div class="flex gap-10 items-center -mt-12">
+      <div class="flex gap-10 items-center">
         <h1>{{ firstNumber }} + {{ secondNumber }} =</h1>
         <div class="relative">
           <input
@@ -19,7 +19,7 @@
           <div class="platform"></div>
         </div>
       </div>
-      <button @click.prevent="calculateAnswer" class="pushable relative z-10">
+      <button @click.prevent="calculateAnswer" class="pushable relative z-10 mt-10">
         <span class="front">❔</span>
       </button>
     </div>
@@ -69,6 +69,9 @@ function calculateAnswer() {
   } else {
     correctAnswer.value = false
     wrongAnswer.value = true
+    setTimeout(() => {
+      wrongAnswer.value = false
+    }, 4000)
   }
 }
 
@@ -136,16 +139,18 @@ input {
 
 input {
   color: #fdd835;
+  caret-color: #f0003c;
   text-align: center;
   font-weight: 900;
-  line-height: 1dvh;
+  line-height: 1;
+  height: 16dvw;
 }
 
 .platform {
   position: absolute;
-  bottom: 64px;
+  bottom: 0;
   width: 100%;
-  height: 40px;
+  height: 14%;
   background-color: #fff;
   border: 2px solid #000;
   box-shadow:

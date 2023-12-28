@@ -6,7 +6,9 @@
         ><span class="front home"><icon-home /></span
       ></RouterLink>
       <button @click.prevent="playMusic" class="pushable mr-6">
-        <span class="front music" :class="startPlayer ? 'activated' : ''"><icon-music /></span>
+        <span class="front music" :class="startPlayer ? 'activated' : 'deactivated'"
+          ><icon-music
+        /></span>
       </button>
       <the-clouds />
     </header>
@@ -79,13 +81,15 @@ header {
   background-color: #f0003c;
   transform: translateY(-2px);
 }
+.activated :deep(svg) {
+  animation: bouncer 1s infinite;
+}
+.deactivated :deep(svg) {
+  opacity: 0.5;
+}
 
 .pushable:active .front {
   transform: translateY(-2px);
-}
-
-.music :deep(svg) {
-  animation: bouncer 1s infinite;
 }
 
 /* Bouncing */
