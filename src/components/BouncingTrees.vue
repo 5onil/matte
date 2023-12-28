@@ -1,8 +1,8 @@
 <template>
   <svg
-    class="absolute bottom-24 left-52 z-20"
-    width="206"
-    height="227"
+    class="absolute bottom-[28%] left-[11%] z-20"
+    width="13dvw"
+    height="auto"
     viewBox="0 0 206 227"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -33,9 +33,9 @@
   </svg>
 
   <svg
-    class="absolute bottom-40 left-96 z-10"
-    width="145"
-    height="158"
+    class="absolute bottom-[48%] left-[22%] z-10"
+    width="10dvw"
+    height="auto"
     viewBox="0 0 145 158"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -67,9 +67,9 @@
 
   <!-- Right -->
   <svg
-    class="absolute bottom-40 right-32 z-10"
-    width="145"
-    height="158"
+    class="absolute bottom-[34%] right-[14%] z-10"
+    width="8dvw"
+    height="auto"
     viewBox="0 0 145 158"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -99,12 +99,12 @@
     />
   </svg>
 
-  <div class="absolute bottom-24 right-80 z-20">
+  <div class="absolute bottom-[28%] right-[25%] z-20">
     <!-- Eyes -->
     <svg
-      class="absolute top-20 left-12 eyes"
-      width="104"
-      height="45"
+      class="absolute left-[27.5%] bottom-[10%] eyes animate-bouncer"
+      width="6dvw"
+      height="auto"
       viewBox="0 0 104 45"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -119,9 +119,9 @@
 
     <!-- Mouth -->
     <svg
-      class="absolute top-28 left-20 animate-bouncer"
-      width="44"
-      height="22"
+      class="absolute left-[39%] animate-bouncer"
+      width="3dvw"
+      height="auto"
       viewBox="0 0 44 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -168,8 +168,8 @@
     </svg>
 
     <svg
-      width="206"
-      height="227"
+      width="13dvw"
+      height="auto"
       viewBox="0 0 206 227"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
