@@ -38,6 +38,7 @@ function playMusic() {
   startPlayer.value = !startPlayer.value
   if (startPlayer.value) {
     musicOne.play()
+    musicOne.loop = true
   } else {
     musicOne.pause()
     musicOne.currentTime = 0
@@ -60,13 +61,14 @@ header {
 }
 .front {
   display: block;
-  padding: 12px 42px;
+  padding: 12px 24px;
   border-radius: 12px;
   font-size: 1.25rem;
   border: 2px solid #000000;
   background-color: #f0003c;
   color: white;
   transform: translateY(-6px);
+  transition: transform 0.1s linear;
 }
 
 .home {
@@ -79,9 +81,11 @@ header {
 
 .activated {
   background-color: #f0003c;
-  transform: translateY(-2px);
+  transform: translateY(0px);
+  transition: transform 0.1s linear;
 }
 .activated :deep(svg) {
+  filter: invert(1);
   animation: bouncer 1s infinite;
 }
 .deactivated :deep(svg) {
@@ -89,6 +93,7 @@ header {
 }
 
 .pushable:active .front {
+  transition: transform 0.1s linear;
   transform: translateY(-2px);
 }
 

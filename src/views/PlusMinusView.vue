@@ -1,7 +1,17 @@
 <template>
   <div class="plus-minus">
-    <!-- <confetti-effect v-if="correctAnswer" /> -->
-    <h3 class="text-5xl text-center h-12">{{ score }}</h3>
+    <!-- Game over screen -->
+    <game-over v-if="gameOver" :score="score" @restart-game="handleRestartGame" />
+
+    <!-- Game countdown -->
+    <game-count-down
+      ref="gameCountdownComponent"
+      :game-countdown="gameCountdown"
+      @game-over="handleGameOver"
+      class="fixed top-2 left-0 right-0 flex justify-center items-center"
+    />
+
+    <h3 class="text-5xl text-center h-12">{{ stars }}</h3>
     <div class="flex flex-col items-center">
       <h3 class="text-4xl sub-heading">super plus</h3>
       <div class="flex gap-10 items-center">
@@ -34,7 +44,12 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-// import ConfettiEffect from '../components/ConfettiEffect.vue'
+
+// Components
+import GameOver from '@/components/GameOver.vue'
+import GameCountDown from '@/components/GameCountDown.vue'
+
+// Sound imported
 import celebrationSoundFile from '../assets/sound/audience-clapping.mp3'
 
 const celebrationSound = new Audio(celebrationSoundFile)
@@ -43,8 +58,12 @@ const secondNumber = ref(null)
 const answer = ref(null)
 const correctAnswer = ref(false)
 const wrongAnswer = ref(false)
-const score = ref('')
+const stars = ref('')
+const score = ref(0)
+// Countdown value in seconds
+const gameCountdown = ref(15)
 
+// Generate two random numbers between 0 and 10
 function generateRandomNumbers() {
   firstNumber.value = Math.floor(Math.random() * 10) + 1
   secondNumber.value = Math.floor(Math.random() * 10) + 1
@@ -64,7 +83,8 @@ function calculateAnswer() {
       answer.value = ''
       generateRandomNumbers()
       // scorePlaceholder.value = scorePlaceholder.slice(0, -1)
-      score.value += '⭐️'
+      stars.value += '⭐️'
+      score.value++
     }, 30)
   } else {
     correctAnswer.value = false
@@ -89,7 +109,30 @@ function validateInput(event) {
   }
 }
 
+// Game over
+const gameOver = ref(false)
+
+function handleGameOver(value) {
+  gameOver.value = value
+}
+
+// Restart game
+const gameCountdownComponent = ref(null)
+
+function handleRestartGame(value) {
+  gameOver.value = false
+  score.value = 0
+  stars.value = ''
+  gameCountdown.value = gameCountdown.value + 1 - 1
+
+  // Call updateCountdown on the GameCountdown component
+  gameCountdownComponent.value.updateCountdown(gameCountdown.value)
+  answer.value = null
+  generateRandomNumbers()
+}
+
 onMounted(() => {
+  // Game start first addition numbers
   generateRandomNumbers()
 })
 </script>
@@ -209,7 +252,7 @@ input {
   border-radius: 12px;
   font-size: 1.25rem;
   border: 2px solid #000000;
-  background-color: hsl(345deg 100% 47%);
+  background-color: #f0003c;
   color: white;
   transform: translateY(-6px);
 }

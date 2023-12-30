@@ -1,5 +1,5 @@
 <template>
-  <div class="fireworks-bg">
+  <div class="fireworks-bg z-40 bg-slate-800 bg-opacity-95 fixed top-0 left-0 right-0 bottom-0">
     <div class="firework"></div>
     <div class="firework"></div>
     <div class="firework"></div>
@@ -7,16 +7,6 @@
 </template>
 
 <style scoped>
-.fireworks-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(8, 8, 49, 0.911);
-  z-index: 2000;
-}
-
 @keyframes firework {
   0% {
     transform: translate(var(--x), var(--initialY));

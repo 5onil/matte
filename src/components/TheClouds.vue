@@ -23,6 +23,7 @@
   border-radius: 1em;
   height: 1em;
   position: absolute;
+  z-index: 20;
   width: 3em;
   filter: drop-shadow(0 2px 3px hsla(0, 0%, 0%, 0.25));
 }
