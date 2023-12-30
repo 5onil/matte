@@ -61,7 +61,7 @@ const wrongAnswer = ref(false)
 const stars = ref('')
 const score = ref(0)
 // Countdown value in seconds
-const gameCountdown = ref(15)
+const gameCountdown = ref(60)
 
 // Generate two random numbers between 0 and 10
 function generateRandomNumbers() {
