@@ -10,17 +10,22 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/plus-minus',
-      name: 'plus och minus',
+      path: '/plus',
+      name: 'plus',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/PlusMinusView.vue')
+      component: () => import('../views/PlusView.vue')
     },
     {
       path: '/multiplikation',
       name: 'multiplikation',
       component: () => import('../views/MultiplicationView.vue')
+    },
+    {
+      path: '/minus',
+      name: 'minus',
+      component: () => import('../views/MinusView.vue')
     }
   ]
 })
